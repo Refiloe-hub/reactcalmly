@@ -146,7 +146,7 @@ const Index = () => {
         "Using this mental wellbeing chatbot has transformed my life. Its guided mindfulness
         exercises and stress management tips have created a calm and balanced environment
         for me. I never realized how pivotal mental health support could be in reclaiming
-        my productivity and happiness until now.   - Dr Winburg"
+        my productivity and happiness until now."  - Dr Winburg
       </p>
     </div>
   </div>
