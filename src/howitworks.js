@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 
 const HowItWorks = () => {
   return (
@@ -7,13 +7,7 @@ const HowItWorks = () => {
       {/* Header Section */}
       <header className="header">
         <div className="logo">Calmly</div>
-        <nav className="nav">
-          <a href="/">Home</a>
-          <a href="/how-it-works">How It Works</a>
-          <a href="/about-us">About Us</a>
-          <a href="/contact-us">Contact Us</a>
-          <a href="/wellness-tips">Wellness Tips</a>
-        </nav>
+       
       </header>
 
       {/* How It Works Section */}
@@ -53,10 +47,7 @@ const HowItWorks = () => {
         <button className="cta-button">Get Started</button>
       </section>
 
-      {/* Footer Section */}
-      <footer className="footer">
-        <p>© 2024 Calmly. All rights reserved.</p>
-      </footer>
+     
 
       {/* Inline Styles or External CSS */}
       <style>

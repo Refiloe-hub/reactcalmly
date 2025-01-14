@@ -5,7 +5,7 @@ import "./App.css";
 
 // Import your page components
 import Home from "./Home";
-import HowItWorks from "./howitworks";
+import HowItWorks from "./HowItWorks";
 import AboutUs from "./AboutUs";
 
 function App() {

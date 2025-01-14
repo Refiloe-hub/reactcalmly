@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
-
+// Import additional pages
+import HowItWorks from './HowItWorks'; // Ensure the path is correct
+import WellnessTips from './WellnessTips'; // Ensure the path is correct
+import AboutUs from './AboutUs';
+import ContactUs from './ContactUs';
 
 const Index = () => {
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setModalOpen(!isModalOpen);
+  };
+  
+
   return (
-    <>
+    <Router>
       <div className="landing-page">
         {/* Header Section */}
         <header className="landing-header">
@@ -15,14 +27,22 @@ const Index = () => {
             </div>
 
             {/* Navigation Links */}
-            <nav className="navigation">
-  <a href="/howitworks">How It Works</a>
-  <a href="/contactus">Contact Us</a>
-  <a href="/aboutus">About Us</a>
-  <a href="/wellnesstips">Wellness Tips</a>
-</nav>
+          
+           {/* Navigation Links */}
+           <nav className="navigation">
+              <Link to="/">Home</Link>
+              <Link to="/how-it-works">How It Works</Link>
+              <Link to="/About-us">AboutUs</Link>
+              <Link to="/wellness-tips">Wellness Tips</Link>
+              <Link to="/Contact-us">Contact Us</Link>
+            </nav>
           </div>
         </header>
+        {/* Define Routes */}
+        <Routes>
+        <Route
+            path="/"
+            element={
         <main className="landing-main">
           <section className="hero">
             <div className="text-content">
@@ -31,7 +51,7 @@ const Index = () => {
               <p>
                 Enhance your mental well-being with personalized advice from Calmly.
               </p>
-              <button className="cta-button">Sign up today</button>
+              <button className="cta-button" onClick={toggleModal}>Sign up today</button>
             </div>
             <div className="image-content">
               <img
@@ -47,68 +67,69 @@ const Index = () => {
               health experts and wellness platforms.
             </p>
           </section>
-          {/* Features Section */}
-      <section className="features-section">
-        <div className="features-heading">
-          <h2>Discover our features</h2>
-          <p>
-            Unlock holistic mental wellbeing solutions with our advanced
-            chatbot
-          </p>
-        </div>
 
-        <div className="features-grid">
-          {[
-            {
-              title: "Stress Relief",
-              description: "Effective stress relief techniques for a clearer mind",
-            },
-            {
-              title: "Guided Meditations",
-              description: "Engage in daily guided meditations",
-            },
-            {
-              title: "Process Tracking",
-              description:
-                "Track your process towards treating your mental wellness",
-            },
-            {
-              title: "Mindfulness Tips",
-              description:
-                "Daily mindfulness tips to your mental well-being",
-            },
-            {
-              title: "Mood Tracker",
-              description:
-                "Monitor your mental health with daily mood inputs",
-            },
-            {
-              title: "Calm Exercises",
-              description:
-                "Guided breathing to help you regain calm and focus",
-            },
-            {
-              title: "Personal Journal",
-              description:
-                "Secure and private journal to capture your thoughts",
-            },
-            {
-              title: "Daily Check-Ins",
-              description:
-                "Daily reflections to track mood and progress",
-            },
-          ].map((feature, index) => (
-            <div key={index} className="feature-card">
-              <h3>{feature.title}</h3>
-              <p>{feature.description}</p>
-              <a href="#">Learn more</a>
+          {/* Features Section */}
+          <section className="features-section">
+            <div className="features-heading">
+              <h2>Discover our features</h2>
+              <p>
+                Unlock holistic mental wellbeing solutions with our advanced
+                chatbot
+              </p>
             </div>
-          ))}
-        </div>
-      </section>
-      {/* New Section for Emotional Support, Stress Relief, and Mindful Practices */}
-       {/* New Section for Emotional Support, Stress Relief, and Mindful Practices */}
-       <section className="mental-health-features">
+
+            <div className="features-grid">
+              {[
+                {
+                  title: "Stress Relief",
+                  description: "Effective stress relief techniques for a clearer mind",
+                },
+                {
+                  title: "Guided Meditations",
+                  description: "Engage in daily guided meditations",
+                },
+                {
+                  title: "Process Tracking",
+                  description:
+                    "Track your process towards treating your mental wellness",
+                },
+                {
+                  title: "Mindfulness Tips",
+                  description:
+                    "Daily mindfulness tips to your mental well-being",
+                },
+                {
+                  title: "Mood Tracker",
+                  description:
+                    "Monitor your mental health with daily mood inputs",
+                },
+                {
+                  title: "Calm Exercises",
+                  description:
+                    "Guided breathing to help you regain calm and focus",
+                },
+                {
+                  title: "Personal Journal",
+                  description:
+                    "Secure and private journal to capture your thoughts",
+                },
+                {
+                  title: "Daily Check-Ins",
+                  description:
+                    "Daily reflections to track mood and progress",
+                },
+              ].map((feature, index) => (
+                <div key={index} className="feature-card">
+                  <h3>{feature.title}</h3>
+                  <p>{feature.description}</p>
+                  <a href="#">Learn more</a>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Mental Health Features Section */}
+          <section className="mental-health-features">
             <h2>Transform your mental well-being with AI</h2>
             <p>Empower your mind with personalized stress management and mindful practices</p>
 
@@ -135,45 +156,80 @@ const Index = () => {
               </div>
             </div>
           </section>
+
           <section className="user-testimonials">
-  <h2>User Testimonials</h2>
-  <p>Real stories from users who found solace and support</p>
+            <h2>User Testimonials</h2>
+            <p>Real stories from users who found solace and support</p>
 
-  <div className="testimonial-card">
-    <img src="/ai white woman.jpg" alt="User photo" className="testimonial-image" />
-    <div className="testimonial-text">
-      <p>
-        "Using this mental wellbeing chatbot has transformed my life. Its guided mindfulness
-        exercises and stress management tips have created a calm and balanced environment
-        for me. I never realized how pivotal mental health support could be in reclaiming
-        my productivity and happiness until now."  - Dr Winburg
-      </p>
-    </div>
-  </div>
-</section>
-<section className="wellness-journey">
-  <h2>Join our wellness journey</h2>
-  <p>Never miss an update from our mental well-being community</p>
-  
-  <div className="subscription-form">
-    <input
-      type="email"
-      placeholder="yourname@wellness.com"
-      className="email-input"
-    />
-    <button className="subscribe-button">Sign up</button>
-  </div>
-</section>
+            <div className="testimonial-card">
+              <img src="/ai white woman.jpg" alt="User photo" className="testimonial-image" />
+              <div className="testimonial-text">
+                <p>
+                  "Using this mental wellbeing chatbot has transformed my life. Its guided mindfulness
+                  exercises and stress management tips have created a calm and balanced environment
+                  for me. I never realized how pivotal mental health support could be in reclaiming
+                  my productivity and happiness until now."  - Dr Winburg
+                </p>
+              </div>
+            </div>
+          </section>
 
+          <section className="wellness-journey">
+            <h2>Join our wellness journey</h2>
+            <p>Never miss an update from our mental well-being community</p>
+
+            <div className="subscription-form">
+              <input
+                type="email"
+                placeholder="yourname@wellness.com"
+                className="email-input"
+              />
+              <button className="subscribe-button">Sign up</button>
+            </div>
+          </section>
         </main>
-        {/* Footer Section */}
-      <footer className="footer">
-        <p>© 2024 Calmly. All rights reserved.</p>
-      </footer>
-    
+        }
+        />
 
+     
+        {/* How It Works Page */}
+        <Route path="/how-it-works" element={<HowItWorks />} />
+        {/*About us page*/}
 
+        <Route path="About-us" element={<AboutUs />} />
+
+        {/* Wellness Tips Page */}
+        <Route path="/wellness-tips" element={<WellnessTips />} />
+        {/*Contact Us page*/}
+        <Route path="Contact-us" element={<ContactUs />} />
+      </Routes>  
+         {/* Footer Section */}
+         <footer className="footer">
+          <p>© 2024 Calmly. All rights reserved.</p>
+        </footer>
+
+        {/* Signup Modal */}
+        {isModalOpen && (
+        <div className="modal-overlay" onClick={toggleModal}>
+          <div
+            className="modal-content"
+            onClick={(e) => e.stopPropagation()} // Prevents closing when clicking inside modal
+          >
+            <div className="modal-header">
+              <h2>Sign Up here!!</h2>
+              <button className="close-button" onClick={toggleModal}>
+                ×
+              </button>
+            </div>
+            <p>Choose a method to sign up:</p>
+            <button className="social-button google">Sign Up with Google</button>
+            <button className="social-button facebook">Sign Up with Facebook</button>
+            <button className="social-button x">Sign Up with X</button>
+          </div>
+        </div>
+      )}
       </div>
+    
 
       {/* CSS at the bottom of the page */}
       <style>
@@ -523,12 +579,116 @@ const Index = () => {
     .subscribe-button:hover {
       background-color: #e2e8f0; /* Light gray on hover */
     }
+      /* Pop-Up Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+}
+
+/* Pop-Up Container */
+.modal-content {
+  background-color: #e6f7f7; /* Light teal to match the page */
+  border-radius: 10px;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: center;
+  animation: fadeIn 0.3s ease-out; /* Smooth entry animation */
+}
+
+/* Close Button */
+ .close-button {
+            background-color: #40ADA8;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: left;
+            align-items: left;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            position: absolute;
+            top: 200px;
+          
+          }
+
+          .close-button:hover {
+            background-color: #0056b3;
+          }
+
+
+/* Social Buttons */
+.social-button {
+  background-color: #40ADA8;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 50px;
+  width: 80%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.social-button:hover {
+  background-color: #0056b3;
+}
+
+.social-button.google {
+  background-color: #db4437; /* Google Red */
+}
+
+.social-button.facebook {
+  background-color: #3b5998; /* Facebook Blue */
+}
+
+.social-button.x {
+  background-color: #1da1f2; /* X (formerly Twitter) Blue */
+}
+
+.social-button.google:hover {
+  background-color: #a53428; /* Darker Google Red */
+}
+
+.social-button.facebook:hover {
+  background-color: #2d4373; /* Darker Facebook Blue */
+}
+
+.social-button.x:hover {
+  background-color: #1176bb; /* Darker Twitter Blue */
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
 
          
         `}
       </style>
-    </>
+    </Router>
   );
 };
 
