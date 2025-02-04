@@ -70,6 +70,42 @@ const AboutUs = () => {
             font-size: 1rem;
             color: #555;
           }
+            /* Responsive Design */
+@media (max-width: 768px) {
+  .about-us-page {
+    padding: 15px;
+  }
+
+  .about-us-main {
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-us-page {
+    padding: 10px;
+  }
+
+  .about-us-main {
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+}
 
         `}
       </style>

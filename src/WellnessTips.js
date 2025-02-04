@@ -141,6 +141,68 @@ const WellnessTips = () => {
           .resources-section a:hover {
             text-decoration: underline;
           }
+            /* Responsive Design */
+@media (max-width: 768px) {
+  .wellness-tips-page {
+    padding: 15px;
+  }
+
+  .logo img {
+    width: 120px;
+  }
+
+  .wellness-main {
+    padding: 20px;
+  }
+
+  .wellness-tips-section h2, 
+  .resources-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .wellness-tips-section li {
+    padding: 15px;
+  }
+
+  .wellness-tips-section h3 {
+    font-size: 1.3rem;
+  }
+
+  .wellness-tips-section p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo img {
+    width: 100px;
+  }
+
+  .wellness-tips-page {
+    padding: 10px;
+  }
+
+  .wellness-main {
+    padding: 15px;
+  }
+
+  .wellness-tips-section h2, 
+  .resources-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .wellness-tips-section h3 {
+    font-size: 1.2rem;
+  }
+
+  .wellness-tips-section p {
+    font-size: 0.85rem;
+  }
+
+  .resources-section a {
+    font-size: 0.9rem;
+  }
+}
 
         `}
       </style>

@@ -137,6 +137,60 @@ const ContactUs = () => {
           .submit-button:hover {
             background-color: #2f8f87;
           }
+            /* Responsive Design */
+@media (max-width: 768px) {
+  .contact-us-page {
+    padding: 15px;
+  }
+
+  .contact-us-main {
+    padding: 20px;
+  }
+
+  .contact-form-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 0.95rem;
+    padding: 8px;
+  }
+
+  .submit-button {
+    padding: 10px 18px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-us-page {
+    padding: 10px;
+  }
+
+  .contact-us-main {
+    padding: 15px;
+  }
+
+  .contact-form-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 0.9rem;
+    padding: 7px;
+  }
+
+  .submit-button {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+}
 
        
         `}

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 
 const HowItWorks = () => {
   return (
@@ -133,6 +133,85 @@ const HowItWorks = () => {
           .cta-button:hover {
             background-color: #f5f5f5;
           }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .how-it-works {
+    padding: 30px 15px;
+  }
+
+  .how-it-works-heading h2 {
+    font-size: 1.8rem;
+  }
+
+  .how-it-works-heading p {
+    font-size: 1rem;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .step-card {
+    padding: 15px;
+  }
+
+  .step-icon {
+    font-size: 2.5rem;
+  }
+
+  .step-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .step-card p {
+    font-size: 0.9rem;
+  }
+
+  .cta-section {
+    padding: 30px 15px;
+  }
+
+  .cta-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .cta-button {
+    padding: 12px 25px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .how-it-works-heading h2 {
+    font-size: 1.5rem;
+  }
+
+  .how-it-works-heading p {
+    font-size: 0.9rem;
+  }
+
+  .step-icon {
+    font-size: 2rem;
+  }
+
+  .step-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .step-card p {
+    font-size: 0.85rem;
+  }
+
+  .cta-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .cta-button {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+}
         `}
       </style>
     </div>

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
+
+
 // Import additional pages
 import HowItWorks from './HowItWorks'; // Ensure the path is correct
 import WellnessTips from './WellnessTips'; // Ensure the path is correct
@@ -13,6 +15,7 @@ const Index = () => {
   const toggleModal = () => {
     setModalOpen(!isModalOpen);
   };
+  
   
 
   return (
@@ -122,7 +125,7 @@ const Index = () => {
                 <div key={index} className="feature-card">
                   <h3>{feature.title}</h3>
                   <p>{feature.description}</p>
-                  <a href="#">Learn more</a>
+                  <a href="/WellnessTips">Learn more</a>
                 </div>
               ))}
             </div>
@@ -681,6 +684,84 @@ const Index = () => {
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+  /* Responsive Styles */
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .navigation {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo {
+    margin-left: 0;
+  }
+
+  .navigation {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero {
+    padding: 20px;
+  }
+
+  .text-content h1 {
+    font-size: 28px;
+  }
+
+  .text-content h2 {
+    font-size: 20px;
+  }
+
+  .cta-button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .image-content img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-header {
+    height: 60px;
+  }
+
+  .navigation a {
+    font-size: 14px;
+    height: 60px;
+  }
+
+  .text-content h1 {
+    font-size: 24px;
+  }
+
+  .text-content h2 {
+    font-size: 18px;
+  }
+
+  .cta-button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
   }
 }
 
