@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/reactcalmly/static/js/main.d133b2a0.js",
+    "index.html": "/reactcalmly/index.html",
+    "main.d133b2a0.js.map": "/reactcalmly/static/js/main.d133b2a0.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.d133b2a0.js"
+  ]
+}
