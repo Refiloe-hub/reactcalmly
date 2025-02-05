@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { auth, provider, signInWithGoogle } from "./firebase";
+
 
 
 
 // Import additional pages
-import HowItWorks from './HowItWorks'; // Ensure the path is correct
-import WellnessTips from './WellnessTips'; // Ensure the path is correct
+import HowItWorks from './HowItWorks'; 
+import WellnessTips from './WellnessTips'; 
 import AboutUs from './AboutUs';
 import ContactUs from './ContactUs';
 
@@ -15,8 +17,20 @@ const Index = () => {
   const toggleModal = () => {
     setModalOpen(!isModalOpen);
   };
+  const handleGoogleSignIn = async () => {
+    try {
+      const result = await signInWithGoogle();
+      console.log("User Info:", result.user);
   
-  
+      if (result.user) {
+        alert(`Welcome, ${result.user.displayName}!`);
+        setModalOpen(false);
+      }
+    } catch (error) {
+      console.error("Google Sign-In Error:", error.message);
+      alert("Failed to sign in. Please try again.");
+    }
+  };
 
   return (
     <Router>
@@ -225,7 +239,9 @@ const Index = () => {
               </button>
             </div>
             <p>Choose a method to sign up:</p>
-            <button className="social-button google">Sign Up with Google</button>
+            <button className="social-button google" onClick={handleGoogleSignIn}>
+  Sign Up with Google
+</button>
             <button className="social-button facebook">Sign Up with Facebook</button>
             <button className="social-button x">Sign Up with X</button>
           </div>
